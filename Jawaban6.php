@@ -7,16 +7,17 @@ memungkinkan aplikasi berkomunikasi dengan sistem basis data tertentu,
 seperti MySQL, Oracle, atau MongoDB.
 #########################################################################################
 
+<?php
+$servername = "localhost";
+$database = "dyah";
+$username = "root";
+$password = "p455w0rd";
 
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:4Mg7nT8AiLOOe0u8t5Wnq4TzR/cB1CdygBZ6pnuDaU8=
-APP_DEBUG=true
-APP_URL=http://localhost
-
-DB_CONNECTION=mysql
-DB_HOST=172.28.160.152
-DB_PORT=23306
-DB_DATABASE=dyah
-DB_USERNAME=root
-DB_PASSWORD=p455w0rd
+$conn = mysqli_connect($servername, $username, $password, $database);
+// mengecek koneksi
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+echo "Koneksi berhasil";
+mysqli_close($conn);
+?>
